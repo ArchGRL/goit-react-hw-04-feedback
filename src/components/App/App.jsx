@@ -13,13 +13,13 @@ export default function App() {
   const handleFeedback = option => {
     switch (option) {
       case 'good':
-        setGood(good => good + 1);
+        setGood(prevGood => prevGood + 1);
         break;
       case 'neutral':
-        setNeutral(neutral => neutral + 1);
+        setNeutral(prevNeutral => prevNeutral + 1);
         break;
       case 'bad':
-        setBad(bad => bad + 1);
+        setBad(prevBad => prevBad + 1);
         break;
       default:
         break;
@@ -40,7 +40,7 @@ export default function App() {
   return (
     <Container>
       <Section title="Pleas leave feetback">
-        <FeedbackOptions options={options} onLeaveFeedback={handleFeedback()} />
+        <FeedbackOptions options={options} onLeaveFeedback={handleFeedback} />
       </Section>
       <Section title="Statistics">
         {countTotalFeedback() >= 1 ? (
